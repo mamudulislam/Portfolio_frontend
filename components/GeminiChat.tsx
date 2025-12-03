@@ -70,6 +70,11 @@ const GeminiChat: React.FC = () => {
       const text = response.text;
       setMessages(prev => [...prev, { role: 'model', text: text || "I'm having trouble thinking right now." }]);
 
+      // Schedule a follow-up message 2 minutes later
+      setTimeout(() => {
+        setMessages(prev => [...prev, { role: 'model', text: "Just following up! Do you have any more questions?" }]);
+      }, 120000); // 2 minutes in milliseconds
+
     } catch (error) {
       console.error(error);
       setMessages(prev => [...prev, { 

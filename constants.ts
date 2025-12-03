@@ -79,9 +79,9 @@ export const EXPERIENCE: Experience[] = [
     company: 'One Year Academy',
     period: '2024',
     description: [
-      'Led the migration of legacy monolith to microservices using Node.js and Express.',
+      'Led the migration of a legacy monolith to microservices using Node.js and Express.',
       'Improved mobile app performance by 40% using React Native Reanimated.',
-      'Mentored 1 junior developers and established code review standards.'
+      'Mentored one junior developer and established code review standards'
     ]
   },
   {
@@ -92,7 +92,7 @@ export const EXPERIENCE: Experience[] = [
     description: [
       'Built high-converting landing pages for Fortune 12 clients.',
       'Implemented complex 3D animations using Three.js and WebGL.',
-      'Collaborated with UI/UX designers to implement pixel-perfect designs.'
+      'Collaborated with UI/UX designers to deliver pixel-perfect interfaces.'
     ]
   }
 ];
