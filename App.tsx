@@ -32,7 +32,7 @@ const App: React.FC = () => {
 
         {/* Global Footer */}
         <footer className="py-8 text-center text-slate-600 text-sm border-t border-white/5 bg-surface/50">
-           <p>© {new Date().getFullYear()} Nexus Portfolio. Built with React & Tailwind.</p>
+           <p>© {new Date().getFullYear()} Syes Mamudul Islam.</p>
         </footer>
       </div>
     </Router>
