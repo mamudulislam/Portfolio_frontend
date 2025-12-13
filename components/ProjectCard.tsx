@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ExternalLink, Activity } from 'lucide-react';
+import { Github, Link } from 'lucide-react';
 import { Project } from '../types';
 import { motion } from 'framer-motion';
 
@@ -9,84 +9,77 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const cardStyle = {
+    backgroundImage: `url(${project.imageUrl})`,
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative"
+      className="group relative rounded-xl overflow-hidden shadow-xl shadow-black/10 dark:shadow-purple-900/20 h-96 bg-cover bg-center"
+      style={cardStyle}
     >
-      {/* Card Container */}
-      <div className="glass-panel rounded-xl overflow-hidden h-full flex flex-col hover:border-primary/50 transition-colors duration-300 shadow-xl shadow-black/5 dark:shadow-none">
-        {/* Image Section */}
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={project.imageUrl}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80" />
-          
-          <div className="absolute bottom-4 left-4">
-             <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 rounded-full backdrop-blur-md shadow-sm">
-                {project.category}
-             </span>
-          </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent transition-all duration-500 group-hover:from-black/95 group-hover:via-black/70" />
+
+      {/* Content */}
+      <div className="relative h-full flex flex-col justify-end p-6 text-white">
+        <div className="flex-1" />
+
+        {/* Category */}
+        <span className="absolute top-6 right-6 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20 rounded-full backdrop-blur-md">
+          {project.category}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-2xl font-bold mb-2 text-shadow" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-slate-300 line-clamp-2 mb-4" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
+          {project.description}
+        </p>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.slice(0, 4).map((tag) => (
+            <span key={tag} className="text-xs bg-white/10 px-2 py-1 rounded">
+              #{tag}
+            </span>
+          ))}
         </div>
 
-        {/* Content Section */}
-        <div className="p-6 flex-1 flex flex-col">
-          <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors text-slate-800 dark:text-white">
-            {project.title}
-          </h3>
-          <p className="text-muted text-sm mb-4 line-clamp-3 flex-1">
-            {project.description}
-          </p>
-
-          {/* Metrics */}
-          {project.metrics && (
-             <div className="flex gap-4 mb-4 py-3 border-y border-muted/10">
-                {project.metrics.map((metric, idx) => (
-                   <div key={idx}>
-                      <p className="text-[10px] uppercase text-muted/70 font-bold tracking-wider">{metric.label}</p>
-                      <p className="text-sm font-mono text-secondary font-semibold">{metric.value}</p>
-                   </div>
-                ))}
-             </div>
-          )}
-
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="text-xs text-muted bg-surface/50 border border-muted/10 px-2 py-1 rounded">
-                #{tag}
-              </span>
-            ))}
-            {project.tags.length > 3 && (
-                <span className="text-xs text-muted/70 py-1">+ {project.tags.length - 3} more</span>
-            )}
+        {/* Actions */}
+        <div className="flex items-center justify-between mt-2 pt-4 border-t border-white/20">
+          <div className="flex gap-4">
+            <a
+              href={project.githubUrl || '#'}
+              className="text-slate-300 hover:text-primary transition-colors"
+              title="View Code"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href={project.demoUrl || '#'}
+              className="text-slate-300 hover:text-primary transition-colors"
+              title="Live Demo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Link size={20} />
+            </a>
           </div>
-
-          {/* Actions */}
-          <div className="flex items-center justify-between mt-auto pt-4 border-t border-muted/10">
-             <div className="flex gap-4">
-                <a href={project.githubUrl || '#'} className="text-muted hover:text-primary transition-colors" title="View Code">
-                    <Github size={18} />
-                </a>
-                <a href={project.demoUrl || '#'} className="text-muted hover:text-primary transition-colors" title="Live Demo">
-                    <ExternalLink size={18} />
-                </a>
-             </div>
-             <a href="#" className="flex items-center gap-1 text-xs font-bold text-primary hover:text-secondary transition-colors uppercase tracking-wider">
-                Case Study <Activity size={14} />
-             </a>
-          </div>
+          <a href="#" className="text-sm font-semibold hover:text-primary transition-colors">
+            Read More &rarr;
+          </a>
         </div>
       </div>
-      
-      {/* Neon Glow on Hover (Dark mode only usually, but subtle in light) */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl opacity-0 group-hover:opacity-20 blur transition duration-500 -z-10" />
     </motion.div>
   );
 };

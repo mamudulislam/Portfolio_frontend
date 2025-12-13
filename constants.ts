@@ -13,53 +13,62 @@ export const PERSONAL_INFO = {
   }
 };
 
+export const LUMINA_AGENCY_IMAGE = './images/lumina.png';
+export const  TrendyMartColApp = './images/TrendyMartColApp.png';
+export const  GATORMIX = './images/GATORMIX.png';
+export const  eshop = './images/eshop.png';
+export const  chiess = './images/chiess.png';
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Nexus E-Commerce Dashboard',
-    description: 'A comprehensive admin dashboard for high-volume e-commerce stores featuring real-time analytics, inventory management, and WebSocket-based order tracking.',
-    tags: ['React', 'Redux Toolkit', 'Node.js', 'Socket.io', 'MongoDB'],
-    imageUrl: 'https://picsum.photos/800/600?random=1',
-    category: 'Full Stack',
-    metrics: [
-      { label: 'Performance', value: '98/100' },
-      { label: 'Data', value: '1M+ Rows' }
-    ]
+    title: 'Lumina Agency',
+    description: 'An agency landing page is a focused web page designed to showcase an agency’s services and convert visitors into leads through a clear message, proof of credibility, and a strong call to action.',
+    tags: ['React', "Taliwind CSS", 'TypeScript'],
+    imageUrl: LUMINA_AGENCY_IMAGE,
+    category: 'Frontend',
+    githubUrl: 'https://github.com/mamudulislam/Lumina_agency',
+    demoUrl: 'https://lumina-agency.vercel.app/',
   },
   {
     id: '2',
-    title: 'FitTrack Pro Mobile',
-    description: 'A cross-platform React Native mobile application for fitness tracking with geolocation mapping, offline mode, and Apple HealthKit integration.',
-    tags: ['React Native', 'TypeScript', 'Firebase', 'Redux'],
-    imageUrl: 'https://picsum.photos/800/600?random=2',
+    title: 'TrendyMartColApp',
+    description: 'TrendyMartColApp is a modern e-commerce mobile application built with React Native, designed for store owners and customers to connect seamlessly.',
+    tags: ['React Native', 'TypeScript'],
+    imageUrl: TrendyMartColApp,
     category: 'Mobile',
-    metrics: [
-      { label: 'Downloads', value: '10k+' },
-      { label: 'Rating', value: '4.8★' }
-    ]
+    githubUrl: 'https://github.com/mamudulislam/trendymartcolapp',
+    demoUrl:'https://expo.dev/accounts/mamudul/projects/my-app/builds/73d647e5-960a-4d2a-81a9-75553bedc75b'
   },
   {
     id: '3',
-    title: 'Aether Cloud SaaS',
-    description: 'Cloud file management SaaS with drag-and-drop uploads, sharable links, and stripe subscription integration. Built with a microservices architecture.',
-    tags: ['Next.js', 'AWS S3', 'Stripe', 'PostgreSQL', 'Docker'],
-    imageUrl: 'https://picsum.photos/800/600?random=3',
+    title: 'Gatromixonsite',
+    description: 'GatorMix is a concrete mixing service in Southwest Florida. Instead of delivering pre-mixed concrete, they bring volumetric mixer trucks that mix fresh concrete right on-site, tailored to your project’s exact needs.',
+    tags: ['React','Talwind CSS','TS','NestJS','Redux','Docker'],
+    imageUrl: GATORMIX,
     category: 'Full Stack',
-    metrics: [
-      { label: 'Uptime', value: '99.9%' },
-      { label: 'MRR', value: '$5k' }
-    ]
+    githubUrl: 'https://github.com/mamudulislam/mrsofofrontend',
+    demoUrl: 'https://gatormix.com/',
   },
   {
     id: '4',
-    title: 'ChatStream Realtime',
+    title: 'cheesuschrustyy',
     description: 'Enterprise-grade team communication platform supporting channels, direct messages, and file sharing with end-to-end encryption.',
-    tags: ['React', 'GraphQL', 'Apollo', 'Redis', 'WebRTC'],
-    imageUrl: 'https://picsum.photos/800/600?random=4',
+    tags: ['React','TS','TailwindCSS','NestJS',],
+    imageUrl: chiess,
     category: 'Full Stack',
-    metrics: [
-      { label: 'Latency', value: '<50ms' }
-    ]
+    githubUrl: 'https://github.com',
+    demoUrl: 'https://cheesuschrustyy.netlify.app/',
+  },
+  {
+    id: '5',
+    title: 'E-Shop',
+    description: 'E-Shop is a modern, scalable, and user-friendly e-commerce platform designed to help businesses of any size sell products online. Built with best practices in mind, E-Shop offers a robust set of features including product management, secure checkout, and user authentication.',
+    tags: ['React','Tailwind CSS'],
+    imageUrl: eshop,
+    category: 'Frontend',
+    githubUrl: 'https://github.com/mamudulislam/E-Shop',
+    demoUrl: 'https://e-shop-mu-five.vercel.app/',
   }
 ];
 

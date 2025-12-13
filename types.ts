@@ -9,7 +9,6 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   category: 'Full Stack' | 'Mobile' | 'Frontend' | 'Backend';
-  metrics?: { label: string; value: string }[];
 }
 
 export interface Skill {

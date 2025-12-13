@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
     : PROJECTS.filter(p => p.category === filter);
 
   return (
-    <div className="pt-28 md:pt-32 pb-20 min-h-screen">
+    <div className="pt-28 md:pt-32 pb-20 min-h-screen bg-dots">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredProjects.map((project, idx) => (
                 <ProjectCard key={project.id} project={project} index={idx} />
             ))}
